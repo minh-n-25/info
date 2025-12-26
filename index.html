@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nguyen Do Anh Minh - Software Developer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .cv-container {
+            width: 800px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+        .left-column {
+            width: 35%;
+            background-color: #B0E0E6; /* Light Blue */
+            padding: 20px;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .right-column {
+            width: 65%;
+            padding: 40px 30px;
+        }
+        /* Cập nhật container để chứa ảnh */
+        .profile-pic-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Tự động resize ảnh avt_cv.png cho vừa khung */
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Giúp ảnh không bị méo khi resize */
+        }
+        .section-title-left {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #333;
+            width: 100%;
+            text-align: center;
+        }
+        /* ... (Giữ nguyên các phần CSS còn lại của bạn) ... */
+        .section-title-right {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+        }
+        .summary-content p, .contact-info p, .skill-list li {
+            font-size: 0.9em;
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .skill-list li {
+            background-color: #87CEFA;
+            margin: 5px 0;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .header-name {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .header-title {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+        .job-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+        .company-name, .school-name {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 3px;
+        }
+        .duration {
+            font-size: 0.9em;
+            color: #95a5a6;
+            margin-bottom: 5px;
+        }
+        .job-description li {
+            font-size: 0.9em;
+            margin-left: -15px;
+            line-height: 1.4;
+        }
+		@media print {
+            .language-selector {
+                display: none !important; /* Ẩn bộ chọn ngôn ngữ khi in */
+            }
+            body {
+                background-color: white;
+            }
+            .cv-container {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+            }
+        }
+        .language-selector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .language-selector button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .language-selector button.active {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+<div class="language-selector">
+    <button onclick="setLang('en')" id="btn-en">EN</button>
+    <button onclick="setLang('jp')" id="btn-jp">JP</button>
+    <button onclick="setLang('vi')" id="btn-vi">VI</button>
+</div>
+
+<div class="cv-container">
+    
+    <div class="left-column">
+        <div class="profile-pic-container">
+            <img src="avt_cv.png" alt="Nguyen Do Anh Minh">
+        </div>
+
+        <div class="section-title-left" data-lang-key="summary_title">CAREER SUMMARY</div>
+        <div class="summary-content">
+            <p data-lang-key="summary_p1">Highly experienced professional with **8+ years in infrastructure engineering** and **3 years in software development/Digital Transformation (DX)**.</p>
+            <p data-lang-key="summary_p2">Proven ability to build new network infrastructure from the ground up. Expertise in driving digital transformation through system development and deploying **RPA** to automate labor-intensive processes in the travel field.</p>
+            <p data-lang-key="summary_p3">Currently seeking a long-term career opportunity in Japan.</p>
+        </div>
+        
+        <div class="section-title-left" data-lang-key="skills_title">TOP SKILLS</div>
+        <ul class="skill-list">
+            <li>RPA: BizRobo!, n8n (Automation)</li>
+            <li>Laravel 9, PHP, Linux</li>
+            <li>Active Directory, Spiceworks</li>
+            <li>Networking (WAN, VPN Site-to-Site)</li>
+            <li>Firewalls (Juniper, Fortigate, Zywall)</li>
+            <li>System Development & Implementation</li>
+            <li>Asset Management</li>
+        </ul>
+
+        <div class="section-title-left" data-lang-key="contact_title">CONTACT DETAILS</div>
+        <div class="contact-info">
+            <p>Email: anhminhnguyen.8x@gmail.com</p>
+            <p data-lang-key="contact_phone">Phone: +817040340789 | +84772806044</p>
+            <p>LinkedIn: www.linkedin.com/in/anh-minh-nguyen-jp2023</p>
+            <p data-lang-key="contact_address">Address: Tokyo, Japan</p>
+        </div>
+    </div>
+
+    <div class="right-column">
+        <h1 class="header-name">NGUYEN DO ANH MINH</h1>
+        <h2 class="header-title" data-lang-key="header_job_title">RPA AND SOFTWARE DEVELOPER</h2>
+        <div class="section-title-right" data-lang-key="exp_title">WORK EXPERIENCE</div>
+
+        <div class="experience-item">
+            <div class="job-title" data-lang-key="job1_title">RPA and Software Developer</div>
+            <div class="company-name">H.I.S. Co., Ltd.</div>
+            <div class="duration" data-lang-key="job1_duration">September 2019 – Present (6 years 3 months) | Tokyo, Japan</div>
+            <ul class="job-description">
+                <li data-lang-key="job1_desc1">**Software & DX Focus (2021 – Present):** Developed and utilized **RPA** to increase productivity and reduce labor; implemented digital transformation of reservation management processes.</li>
+                <li data-lang-key="job1_desc2">Developed an internal system using **Laravel 9 firmware**.</li>
+                <li data-lang-key="job1_desc3">**Infrastructure Focus (2019 – 2021):** Managed and supported internet network deployment for **international branches**.</li>
+                <li data-lang-key="job1_desc4">Transformed and distributed **WAN NETWORK (CATO NETWORK)** for overseas branches, particularly in Southeast Asia.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title" data-lang-key="job2_title">Chief of IT Solution Dept.</div>
+            <div class="company-name">H.I.S. SONG HAN VN TOURIST CO., LTD</div>
+            <div class="duration" data-lang-key="job2_duration">October 2013 – August 2019 (5 years 11 months) | Ho Chi Minh City, Vietnam</div>
+            <ul class="job-description">
+                <li data-lang-key="job2_desc1">Led the IT Solution Department (System Team Leader: 5 staff).</li>
+                <li data-lang-key="job2_desc2">**Managed Project:** Developed a system for managing bookings and arranging Car-Driver-Guide services using **PHP and Linux**.</li>
+                <li data-lang-key="job2_desc3">Established **Active Directory** for 3 branch offices and 5 stores, supporting over 400 computers and users.</li>
+                <li data-lang-key="job2_desc4">Managed networking, including VPN site-to-site connectivity and working with **Juniper, Fortigate, Zywall** firewalls.</li>
+            </ul>
+        </div>
+
+        <div class="section-title-right" data-lang-key="edu_title">EDUCATION</div>
+        
+        <div class="education-item">
+            <div class="job-title" data-lang-key="edu_degree">Engineer's Degree</div>
+            <div class="school-name">HCMC University of Technology and Education</div>
+            <div class="duration">2011–2023</div>
+            <p data-lang-key="edu_major" style="margin:0; font-size:0.9em;">System, Networking, and LAN/WAN Management/Manager</p>
+        </div>
+        
+        <div class="section-title-right" data-lang-key="lang_title">LANGUAGES</div>
+        <p style="font-size:0.9em; margin-top:5px;">
+            <span data-lang-key="lang_jp">Japanese (Elementary)</span>
+            <br>
+            <span data-lang-key="lang_en">English (Limited Working)</span>
+        </p>
+    </div>
+</div>
+
+<script>
+    // --- (Giữ nguyên phần Script xử lý ngôn ngữ của bạn) ---
+    let currentLang = 'en';
+    const translations = {
+        en: {
+            summary_title: "CAREER SUMMARY",
+            summary_p1: "Highly experienced professional with **8+ years in infrastructure engineering** and **3 years in software development/Digital Transformation (DX)**.",
+            summary_p2: "Proven ability to build new network infrastructure from the ground up. Expertise in driving digital transformation through system development and deploying **RPA** to automate labor-intensive processes in the travel field.",
+            summary_p3: "Currently seeking a long-term career opportunity in Japan.",
+            skills_title: "TOP SKILLS",
+            contact_title: "CONTACT DETAILS",
+            contact_phone: "Phone: +817040340789 | +84772806044",
+            contact_address: "Address: Tokyo, Japan",
+            header_job_title: "RPA AND SOFTWARE DEVELOPER",
+            exp_title: "WORK EXPERIENCE",
+            job1_title: "RPA and Software Developer",
+            job1_duration: "September 2019 – Present (6 years 3 months) | Tokyo, Japan",
+            job1_desc1: "**Software & DX Focus (2021 – Present):** Developed and utilized **RPA** to increase productivity and reduce labor; implemented digital transformation of reservation management processes.",
+            job1_desc2: "Developed an internal system using **Laravel 9 firmware**.",
+            job1_desc3: "**Infrastructure Focus (2019 – 2021):** Managed and supported internet network deployment for **international branches**.",
+            job1_desc4: "Transformed and distributed **WAN NETWORK (CATO NETWORK)** for overseas branches, particularly in Southeast Asia.",
+            job2_title: "Chief of IT Solution Dept.",
+            job2_duration: "October 2013 – August 2019 (5 years 11 months) | Ho Chi Minh City, Vietnam",
+            job2_desc1: "Led the IT Solution Department (System Team Leader: 5 staff).",
+            job2_desc2: "**Managed Project:** Developed a system for managing bookings and arranging Car-Driver-Guide services using **PHP and Linux**.",
+            job2_desc3: "Established **Active Directory** for 3 branch offices and 5 stores, supporting over 400 computers and users.",
+            job2_desc4: "Managed networking, including VPN site-to-site connectivity and working with **Juniper, Fortigate, Zywall** firewalls.",
+            edu_title: "EDUCATION",
+            edu_degree: "Engineer's Degree",
+            edu_major: "System, Networking, and LAN/WAN Management/Manager",
+            lang_title: "LANGUAGES",
+            lang_jp: "Japanese (Elementary)",
+            lang_en: "English (Limited Working)",
+        },
+        jp: {
+            summary_title: "キャリア概要",
+            summary_p1: "**8年以上のインフラストラクチャエンジニア経験**と**3年間のソフトウェア開発・DX経験**を持つプロフェッショナル。",
+            summary_p2: "ゼロからの新規ネットワークインフラ構築能力に優れる。システム開発、**RPA**導入による労働集ary型プロセスの自動化を通じてデジタルトランスフォーメーションを推進した実績がある（特に旅行予約分野）。",
+            summary_p3: "現在、日本での長期的なキャリア機会を探しています。",
+            skills_title: "主要スキル",
+            contact_title: "連絡先",
+            contact_phone: "電話番号: +817040340789 | +84772806044",
+            contact_address: "住所: 東京都",
+            header_job_title: "RPA・ソフトウェア開発エンジニア",
+            exp_title: "職務経験",
+            job1_title: "RPA・ソフトウェア開発エンジニア",
+            job1_duration: "2019年9月 – 現在 (6年3ヶ月) | 東京",
+            job1_desc1: "**ソフトウェア・DX担当 (2021年～):** **RPA**を開発・活用して生産性を向上させ、労働力を削減。予約管理プロセスのデジタルトランスフォーメーションを実施。",
+            job1_desc2: "**Laravel 9 firmware**を用いた社内システムを開発。",
+            job1_desc3: "**インフラ担当 (2019年～2021年):** **海外支店**のインターネットネットワーク導入を管理・設計支援。",
+            job1_desc4: "特に東南アジアの海外支店向けに**WAN NETWORK (CATO NETWORK)**の変革と展開を実施。",
+            job2_title: "ITソリューション部門長",
+            job2_duration: "2013年10月 – 2019年8月 (5年11ヶ月) | ホー치민市、ベトナム",
+            job2_desc1: "ITソリューション部門（システムチームリーダー：5名）を統括。",
+            job2_desc2: "**担当プロジェクト:** **PHPとLinux**を用いて、予約管理およびCar-Driver-Guideサービス手配システムを開発。",
+            job2_desc3: "3支店と5店舗向けに**Active Directory**を確立し、400台以上のコンピュータとユーザーをサポート。",
+            job2_desc4: "**Juniper、Fortigate、Zywall**ファイアウォールを使用したVPNサイト間接続を含むネットワークを管理。",
+            edu_title: "学歴",
+            edu_degree: "学士（工学）",
+            edu_major: "システム、ネットワーキング、LAN/WAN管理",
+            lang_title: "言語",
+            lang_jp: "日本語 (初級)",
+            lang_en: "英語 (業務限定)",
+        },
+        vi: {
+            summary_title: "TÓM TẮT SỰ NGHIỆP",
+            summary_p1: "Chuyên gia giàu kinh nghiệm với **8+ năm kỹ sư hạ tầng** và **3 năm phát triển phần mềm/Chuyển đổi số (DX)**.",
+            summary_p2: "Khả năng xây dựng hạ tầng mạng mới từ đầu. Chuyên môn thúc đẩy chuyển đổi số qua phát triển hệ thống và triển khai **RPA** để tự động hóa các quy trình tốn công sức trong lĩnh vực du lịch.",
+            summary_p3: "Hiện đang tìm kiếm cơ hội làm việc và sinh sống lâu dài tại Nhật Bản.",
+            skills_title: "KỸ NĂNG CHUYÊN MÔN",
+            contact_title: "CÁCH LIÊN HỆ",
+            contact_phone: "Điện thoại: +817040340789 | +84772806044",
+            contact_address: "Địa chỉ: Tokyo, Nhật Bản",
+            header_job_title: "KỸ SƯ PHÁT TRIỂN PHẦN MỀM VÀ RPA",
+            exp_title: "KINH NGHIỆM LÀM VIỆC",
+            job1_title: "Kỹ sư Phát triển Phần mềm và RPA",
+            job1_duration: "Tháng 9/2019 – Hiện tại (6 năm 3 tháng) | Tokyo, Nhật Bản",
+            job1_desc1: "**Chuyển đổi số & Phần mềm (2021 – Nay):** Phát triển và sử dụng **RPA** để tăng năng suất và giảm nhân công; triển khai chuyển đổi số quy trình quản lý đặt chỗ.",
+            job1_desc2: "Phát triển hệ thống nội bộ bằng **Laravel 9 firmware**.",
+            job1_desc3: "**Hạ tầng (2019 – 2021):** Quản lý và hỗ trợ triển khai mạng internet cho các chi nhánh **quốc tế**.",
+            job1_desc4: "Chuyển đổi và phân phối **WAN NETWORK (CATO NETWORK)** cho các chi nhánh ở nước ngoài, đặc biệt là Đông Nam Á.",
+            job2_title: "Trưởng phòng Giải pháp IT",
+            job2_duration: "Tháng 10/2013 – Tháng 8/2019 (5 năm 11 tháng) | TP. Hồ Chí Minh, Việt Nam",
+            job2_desc1: "Dẫn dắt Bộ phận Giải pháp IT (Trưởng nhóm Hệ thống: 5 nhân viên).",
+            job2_desc2: "**Quản lý Dự án:** Phát triển hệ thống quản lý đặt chỗ và sắp xếp dịch vụ Car-Driver-Guide bằng **PHP và Linux**.",
+            job2_desc3: "Thành lập **Active Directory** cho 3 chi nhánh và 5 cửa hàng, hỗ trợ hơn 400 máy tính và người dùng.",
+            job2_desc4: "Quản lý hệ thống mạng, bao gồm kết nối VPN site-to-site và làm việc với các tường lửa **Juniper, Fortigate, Zywall**.",
+            edu_title: "HỌC VẤN",
+            edu_degree: "Bằng Kỹ sư",
+            edu_major: "Quản lý Hệ thống, Mạng lưới, và LAN/WAN",
+            lang_title: "NGÔN NGỮ",
+            lang_jp: "Tiếng Nhật (Sơ cấp)",
+            lang_en: "Tiếng Anh (Làm việc giới hạn)",
+        }
+    };
+
+    function setLang(lang) {
+        currentLang = lang;
+        const elements = document.querySelectorAll('[data-lang-key]');
+        elements.forEach(el => {
+            const key = el.getAttribute('data-lang-key');
+            if (translations[lang] && translations[lang][key]) {
+                let text = translations[lang][key];
+                text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); 
+                el.innerHTML = text;
+            }
+        });
+        document.querySelectorAll('.language-selector button').forEach(button => {
+            button.classList.remove('active');
+        });
+        document.getElementById(`btn-${lang}`).classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setLang(currentLang);
+    });
+</script>
+
+</body>
+</html>
+</html>
