@@ -2,449 +2,1480 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Nguyen Do Anh Minh</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #00d2ff;
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-            --hero-height: 100vh;
-            --header-height: 70px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyen Do Anh Minh — Fullstack Developer | RPA & DX</title>
+  <meta name="description"
+    content="Personal intro / CV page for Nguyen Do Anh Minh — Fullstack Developer | RPA & DX." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ---------- Reset & base ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        * {
-            box-sizing: border-box;
-        }
+    html,
+    body {
+      height: 100%;
+    }
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            transition: background 0.3s;
-        }
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 200, 232, 0.2) transparent;
+    }
 
-        /* --- LANDING PAGE WRAPPER --- */
-        #landing-page {
-            transition: opacity 0.5s;
-        }
+    body {
+      background: #040d1c;
+      font-family: "DM Sans", sans-serif;
+      color: #a0c8e0;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        /* --- HERO & STICKY HEADER --- */
-        .hero-spacer {
-            height: var(--hero-height);
-            transition: height 0.5s ease;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        .hero {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: var(--hero-height);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
-            text-align: center;
-            z-index: 1000;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-        }
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
 
-        /* Khi đã cuộn: Section Hero thu gọn và CĂN GIỮA */
-        body.scrolled .hero {
-            height: var(--header-height);
-            flex-direction: row;
-            justify-content: center;
-            /* Căn giữa nội dung khi cuộn */
-            padding: 0 20px;
-            border-bottom: 1px solid var(--primary);
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-        }
+    ul {
+      list-style: none;
+    }
 
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            margin-bottom: 20px;
-            object-fit: cover;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
-            transition: all 0.6s ease;
-        }
+    /* ---------- Shared background layers ---------- */
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
 
-        body.scrolled .profile-img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 0;
-            margin-right: 15px;
-        }
+    .grid-bg svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.07;
+    }
 
-        .hero-text h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            transition: all 0.6s ease;
-            white-space: nowrap;
-        }
+    .grid-bg .radial {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(0, 120, 200, 0.12) 0%, transparent 70%);
+    }
 
-        body.scrolled .hero-text h1 {
-            font-size: 1.2rem;
-            white-space: nowrap;
-        }
+    /* ---------- Keyframes ---------- */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
 
-        .tagline {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-top: 10px;
-            transition: opacity 0.3s;
-        }
+      to {
+        opacity: 1;
+      }
+    }
 
-        body.scrolled .tagline {
-            opacity: 0;
-            display: none;
-        }
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
 
-        body.scrolled .intro {
-            opacity: 0;
-            display: none;
-        }
+      to {
+        opacity: 0;
+      }
+    }
 
-        /* --- CONTENT SECTION --- */
-        .content-section {
-            position: relative;
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            z-index: 10;
-        }
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-        .timeline-item {
-            background: var(--card-bg);
-            border-radius: 12px;
-            margin-bottom: 20px;
-            cursor: pointer;
-            border-left: 4px solid transparent;
-            overflow: hidden;
-            transition: border 0.3s, transform 0.3s;
-        }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .timeline-item:hover {
-            border-left-color: var(--primary);
-            transform: translateX(5px);
-        }
+    @keyframes riseInSm {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
 
-        .timeline-header {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .timeline-body {
-            max-height: 0;
-            padding: 0 20px;
-            color: var(--text-dim);
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.7);
+      }
 
-        .timeline-item.active .timeline-body {
-            max-height: 800px;
-            padding: 0 20px 20px;
-            opacity: 1;
-        }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
-        .tag {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            background: rgba(0, 210, 255, 0.1);
-            color: var(--primary);
-            font-size: 0.75rem;
-            margin: 5px 5px 0 0;
-            border: 1px solid var(--primary);
-        }
+    @keyframes cvIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
 
-        /* --- CONTROLS & LANGUAGE --- */
-        .fixed-controls {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 2000;
-        }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .ctrl-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: #000;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
+    @keyframes cvOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-        .lang-switcher {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            display: flex;
-            gap: 8px;
-            z-index: 1100;
-        }
+      to {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+    }
 
-        .lang-switcher button {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 6px 12px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: bold;
-        }
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
 
-        .lang-switcher button.active {
-            background: var(--primary);
-            color: #000;
-        }
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
-        /* --- PRINT AREA (A4 OPTIMIZATION) --- */
-        #cv-print-area {
-            display: none;
-        }
+    @keyframes spinReverse {
+      from {
+        transform: rotate(0deg);
+      }
 
-        @media print {
-            @page {
-                size: A4;
-                margin: 0;
-            }
+      to {
+        transform: rotate(-360deg);
+      }
+    }
 
-            #landing-page,
-            .fixed-controls,
-            .lang-switcher {
-                display: none !important;
-            }
+    @keyframes glowPulse {
+      0% {
+        opacity: 0.3;
+        transform: scale(0.8);
+      }
 
-            #cv-print-area {
-                display: block !important;
-                width: 210mm;
-                height: 297mm;
-                background: white;
-                color: black;
-                margin: 0;
-            }
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
 
-            body {
-                background: white !important;
-            }
+      100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+      }
+    }
 
-            .print-container {
-                display: flex;
-                height: 100%;
-                width: 100%;
-            }
+    /* ---------- View switching ---------- */
+    .screen {
+      display: none;
+    }
 
-            .print-left {
-                width: 35%;
-                background: #B0E0E6 !important;
-                padding: 20px;
-                -webkit-print-color-adjust: exact;
-            }
+    .screen.active {
+      display: block;
+    }
 
-            .print-right {
-                width: 65%;
-                padding: 40px;
-                background: white;
-            }
+    #intro.active {
+      animation: fadeIn 0.6s ease both;
+    }
 
-            .print-name {
-                font-size: 28pt;
-                margin: 0;
-                color: #2c3e50;
-            }
+    #intro.leaving {
+      animation: fadeOut 0.5s ease both;
+    }
 
-            .print-title {
-                font-size: 14pt;
-                color: #7f8c8d;
-                border-bottom: 2px solid #2c3e50;
-                padding-bottom: 5px;
-            }
+    #cv.active {
+      animation: cvIn 0.5s ease-out both;
+    }
 
-            .print-section-title {
-                font-weight: bold;
-                border-bottom: 1px solid #333;
-                margin-top: 20px;
-                margin-bottom: 10px;
-            }
-        }
-    </style>
+    #cv.leaving {
+      animation: cvOut 0.5s ease-out both;
+    }
+
+    /* ---------- INTRO SCREEN ---------- */
+    .intro-wrap {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #040d1c;
+    }
+
+    .glow-dot {
+      position: absolute;
+      border-radius: 9999px;
+      background: #00c8e8;
+      box-shadow: 0 0 12px 4px rgba(0, 200, 232, 0.6);
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    .intro-center {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    /* Avatar (intro) */
+    .avatar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 160px;
+      height: 160px;
+      animation: scaleIn 0.7s ease-out both;
+    }
+
+    .avatar .ring-outer {
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      border: 2px solid rgba(0, 200, 232, 0.5);
+      box-shadow: 0 0 24px 4px rgba(0, 200, 232, 0.25), inset 0 0 24px rgba(0, 200, 232, 0.08);
+      animation: spin 18s linear infinite;
+    }
+
+    .avatar .ring-inner {
+      position: absolute;
+      inset: 8px;
+      border-radius: 9999px;
+      border: 1px dashed rgba(0, 200, 232, 0.3);
+      animation: spinReverse 24s linear infinite;
+    }
+
+    .avatar .core {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #0a2040 0%, #071222 100%);
+      border: 2px solid rgba(0, 200, 232, 0.4);
+      box-shadow: 0 0 40px rgba(0, 200, 232, 0.2);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #00c8e8;
+      letter-spacing: 0.05em;
+      overflow: hidden;
+    }
+
+    .avatar .core img,
+    .sidebar-avatar .core img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .intro-name {
+      margin-top: 2rem;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #e0f6ff;
+      text-shadow: 0 0 40px rgba(0, 200, 232, 0.3);
+      animation: riseIn 0.6s ease both;
+      animation-delay: 0.3s;
+    }
+
+    .intro-role {
+      margin-top: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      animation: riseInSm 0.6s ease both;
+      animation-delay: 0.45s;
+    }
+
+    .intro-role .line {
+      height: 1px;
+      width: 60px;
+    }
+
+    .intro-role .line.l {
+      background: linear-gradient(to right, transparent, rgba(0, 200, 232, 0.6));
+    }
+
+    .intro-role .line.r {
+      background: linear-gradient(to left, transparent, rgba(0, 200, 232, 0.6));
+    }
+
+    .intro-role span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #00c8e8;
+    }
+
+    .intro-company {
+      margin-top: 0.5rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: #4a8fad;
+      animation: riseInSm 0.6s ease both;
+      animation-delay: 0.6s;
+    }
+
+    .btn-view {
+      position: relative;
+      overflow: hidden;
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 2rem;
+      border-radius: 0.125rem;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: transparent;
+      border: 1px solid rgba(0, 200, 232, 0.5);
+      color: #00c8e8;
+      box-shadow: 0 0 20px rgba(0, 200, 232, 0.1), inset 0 0 20px rgba(0, 200, 232, 0.04);
+      transition: transform 0.2s ease;
+      animation: riseInSm 0.6s ease both;
+      animation-delay: 0.8s;
+    }
+
+    .btn-view:hover {
+      transform: scale(1.04);
+    }
+
+    .btn-view:active {
+      transform: scale(0.97);
+    }
+
+    .btn-view .hover-fill {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: rgba(0, 200, 232, 0.07);
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-view:hover .hover-fill {
+      opacity: 1;
+    }
+
+    .btn-view>span:not(.hover-fill),
+    .btn-view>svg {
+      position: relative;
+    }
+
+    .intro-footer {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      animation: fadeIn 0.6s ease both;
+      animation-delay: 1.1s;
+    }
+
+    .intro-footer span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: #1a4a6a;
+    }
+
+    /* ---------- CV DETAIL ---------- */
+    #cv {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      overflow-y: auto;
+      background: #040d1c;
+    }
+
+    .cv-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+      background: rgba(4, 13, 28, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 200, 232, 0.15);
+    }
+
+    .cv-topbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .cv-topbar .dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 9999px;
+      background: #00c8e8;
+      box-shadow: 0 0 8px rgba(0, 200, 232, 0.8);
+    }
+
+    .cv-topbar .brand span {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4a8fad;
+    }
+
+    .cv-topbar .actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-download-sm {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 1rem;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 0.125rem;
+      background: rgba(0, 200, 232, 0.12);
+      border: 1px solid rgba(0, 200, 232, 0.4);
+      color: #00c8e8;
+      transition: transform 0.15s ease;
+    }
+
+    .btn-download-sm:hover {
+      transform: scale(1.03);
+    }
+
+    .btn-download-sm:active {
+      transform: scale(0.97);
+    }
+
+    .btn-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.125rem;
+      border: 1px solid rgba(0, 200, 232, 0.2);
+      color: #4a8fad;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-close:hover {
+      color: #00c8e8;
+      border-color: rgba(0, 200, 232, 0.5);
+    }
+
+    .cv-main {
+      position: relative;
+      z-index: 10;
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 2.5rem 1rem;
+    }
+
+    .cv-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(0, 200, 232, 0.15);
+    }
+
+    .cv-header .row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cv-header .name {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #e0f6ff;
+      text-shadow: 0 0 30px rgba(0, 200, 232, 0.25);
+    }
+
+    .cv-header .role {
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .cv-header .role .line {
+      height: 1px;
+      width: 32px;
+      background: rgba(0, 200, 232, 0.6);
+    }
+
+    .cv-header .role span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.875rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #00c8e8;
+    }
+
+    .cv-header .status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cv-header .status .dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 9999px;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+    }
+
+    .cv-header .status span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      color: #4a8fad;
+    }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .cv-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .cv-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .card {
+      padding: 1rem;
+      border-radius: 0.125rem;
+      background: rgba(7, 18, 34, 0.8);
+      border: 1px solid rgba(0, 200, 232, 0.12);
+    }
+
+    .card.lg {
+      padding: 1.5rem;
+    }
+
+    .card h3 {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #00c8e8;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Sidebar avatar */
+    .sidebar-avatar-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .sidebar-avatar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+    }
+
+    .sidebar-avatar .frame {
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      border: 1px solid rgba(0, 200, 232, 0.4);
+      box-shadow: 0 0 20px rgba(0, 200, 232, 0.15);
+    }
+
+    .sidebar-avatar .core {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #0a2040 0%, #071222 100%);
+      font-family: "Rajdhani", sans-serif;
+      color: #00c8e8;
+      letter-spacing: 0.05em;
+      overflow: hidden;
+    }
+
+    .summary {
+      font-size: 0.75rem;
+      line-height: 1.625;
+      color: #7ea8c0;
+    }
+
+    .summary strong {
+      color: #cfe8ff;
+      font-weight: 500;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.75rem;
+      text-align: center;
+      line-height: 1.4;
+      border-radius: 0.125rem;
+      font-family: "JetBrains Mono", monospace;
+      color: #7ec8e3;
+      background: rgba(0, 120, 180, 0.12);
+      border: 1px solid rgba(0, 200, 232, 0.2);
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+    }
+
+    .contact-item .ico {
+      color: #00c8e8;
+      margin-top: 1px;
+      flex-shrink: 0;
+      display: flex;
+    }
+
+    .contact-item .val {
+      font-size: 0.75rem;
+      line-height: 1.625;
+      word-break: break-all;
+      font-family: "DM Sans", sans-serif;
+      color: #a0c8e0;
+    }
+
+    a.contact-item {
+      transition: opacity 0.2s ease;
+    }
+
+    a.contact-item:hover {
+      opacity: 0.8;
+    }
+
+    a.contact-item .val {
+      color: #7ec8e3;
+    }
+
+    .lang-row {
+      margin-bottom: 0.75rem;
+    }
+
+    .lang-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .lang-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.375rem;
+    }
+
+    .lang-head .name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #a0c8e0;
+    }
+
+    .lang-head .level {
+      font-size: 0.75rem;
+      color: #4a8fad;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .lang-bars {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .lang-bars .bar {
+      height: 4px;
+      flex: 1;
+      border-radius: 9999px;
+      background: rgba(0, 200, 232, 0.12);
+    }
+
+    .lang-bars .bar.on {
+      background: linear-gradient(90deg, #00c8e8, #0076a8);
+      box-shadow: 0 0 6px rgba(0, 200, 232, 0.4);
+    }
+
+    /* Section header */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-header .ico {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 0.125rem;
+      background: rgba(0, 200, 232, 0.12);
+      border: 1px solid rgba(0, 200, 232, 0.3);
+      color: #00c8e8;
+    }
+
+    .section-header h2 {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #00c8e8;
+    }
+
+    .section-header .rule {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(0, 200, 232, 0.4), transparent);
+    }
+
+    /* Timeline entries */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .entry {
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .entry .spine {
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(0, 200, 232, 0.5), transparent);
+    }
+
+    .entry .node {
+      position: absolute;
+      left: -3px;
+      top: 0.5rem;
+      width: 0.375rem;
+      height: 0.375rem;
+      border-radius: 9999px;
+      background: #00c8e8;
+      box-shadow: 0 0 8px rgba(0, 200, 232, 0.8);
+    }
+
+    .entry .title {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #e0f6ff;
+    }
+
+    .entry .meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      column-gap: 0.75rem;
+      row-gap: 0.125rem;
+      margin-top: 0.125rem;
+    }
+
+    .entry .meta .company {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #00c8e8;
+    }
+
+    .entry .meta .period {
+      font-size: 0.75rem;
+      color: #4a8fad;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .entry .meta .extra {
+      font-size: 0.75rem;
+      color: #2a6080;
+    }
+
+    .entry ul {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .entry li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .entry li .bullet {
+      margin-top: 0.375rem;
+      width: 4px;
+      height: 4px;
+      border-radius: 9999px;
+      flex-shrink: 0;
+      background: rgba(0, 200, 232, 0.5);
+    }
+
+    .entry li .text {
+      font-size: 0.875rem;
+      line-height: 1.625;
+      color: #7ea8c0;
+    }
+
+    .entry .edu-school {
+      margin-top: 0.125rem;
+    }
+
+    .entry .edu-desc {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: #7ea8c0;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .stat {
+      padding: 1rem;
+      border-radius: 0.125rem;
+      text-align: center;
+      background: rgba(0, 200, 232, 0.05);
+      border: 1px solid rgba(0, 200, 232, 0.2);
+    }
+
+    .stat .value {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #00c8e8;
+      text-shadow: 0 0 16px rgba(0, 200, 232, 0.5);
+    }
+
+    .stat .label {
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      color: #4a8fad;
+    }
+
+    /* Big download CTA */
+    .btn-download-lg {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem 0;
+      border-radius: 0.125rem;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: rgba(0, 200, 232, 0.08);
+      border: 1px solid rgba(0, 200, 232, 0.35);
+      color: #00c8e8;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-download-lg:hover {
+      transform: scale(1.02);
+    }
+
+    .btn-download-lg:active {
+      transform: scale(0.98);
+    }
+
+    .btn-download-lg .hover-fill {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: rgba(0, 200, 232, 0.06);
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-download-lg:hover .hover-fill {
+      opacity: 1;
+    }
+
+    .btn-download-lg>span:not(.hover-fill),
+    .btn-download-lg>svg {
+      position: relative;
+    }
+
+    .btn-download-lg .ext {
+      opacity: 0.5;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (min-width: 640px) {
+      .intro-name {
+        font-size: 3.75rem;
+      }
+
+      .cv-header .name {
+        font-size: 3rem;
+      }
+
+      .cv-header .row {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+
+      .cv-main {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cv-grid {
+        grid-template-columns: 280px 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <!-- ============ INTRO SCREEN ============ -->
+  <section id="intro" class="screen active">
+    <div class="intro-wrap">
+      <!-- background -->
+      <div class="grid-bg">
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#00c8e8" stroke-width="0.8" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+        <div class="radial"></div>
+      </div>
 
-    <div id="landing-page">
-        <div class="lang-switcher">
-            <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
-            <button onclick="setLang('jp')" id="btn-jp">JP</button>
-            <button onclick="setLang('vi')" id="btn-vi">VI</button>
+      <!-- glow dots -->
+      <div class="glow-dot" style="left:15%; top:20%; width:5px; height:5px; animation-delay:0s;"></div>
+      <div class="glow-dot" style="left:82%; top:15%; width:3px; height:3px; animation-delay:1.2s;"></div>
+      <div class="glow-dot" style="left:10%; top:75%; width:4px; height:4px; animation-delay:0.6s;"></div>
+      <div class="glow-dot" style="left:88%; top:70%; width:3px; height:3px; animation-delay:1.8s;"></div>
+      <div class="glow-dot" style="left:50%; top:5%;  width:3px; height:3px; animation-delay:0.9s;"></div>
+
+      <div class="intro-center">
+        <div class="avatar">
+          <div class="ring-outer"></div>
+          <div class="ring-inner"></div>
+          <div class="core"><img src="avt_cv.png" alt="Nguyen Do Anh Minh" /></div>
         </div>
 
-        <section class="hero" id="hero">
-            <img src="avt_cv.png" class="profile-img" alt="Nguyen Do Anh Minh">
-            <div class="hero-text">
-                <h1 id="txt-name">NGUYEN DO ANH MINH</h1>
-                <p class="intro" id="txt-intro">11+ years experience in Infrastructure & Software Development</p>
-                <p class="tagline" id="txt-role">RPA & Software Developer</p>
-            </div>
-        </section>
+        <h1 class="intro-name">NGUYEN DO ANH MINH</h1>
 
-        <div class="hero-spacer"></div>
-
-        <section class="content-section">
-            <h2 id="txt-history-title"><i class="fas fa-terminal"></i> Work_History.log</h2>
-
-            <div class="timeline-item" onclick="this.classList.toggle('active')">
-                <div class="timeline-header">
-                    <span id="job1-header">H.I.S. Co., Ltd (Tokyo, Japan)</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="timeline-body">
-                    <p id="job1-desc">Developed internal systems using Laravel 9 and implemented RPA solutions to
-                        automate labor-intensive processes in the travel field. Managed global WAN networks.</p>
-                    <div class="tags">
-                        <span class="tag">RPA</span><span class="tag">Laravel 9</span><span class="tag">CATO
-                            Network</span><span class="tag">DX</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item" onclick="this.classList.toggle('active')">
-                <div class="timeline-header">
-                    <span id="job2-header">H.I.S. Song Han (Vietnam)</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="timeline-body">
-                    <p id="job2-desc">Led the IT Solution Department. Developed booking systems using PHP/Linux and
-                        established Active Directory for 400+ users.</p>
-                    <div class="tags">
-                        <span class="tag">Team Lead</span><span class="tag">PHP/Linux</span><span class="tag">Active
-                            Directory</span><span class="tag">Security</span>
-                    </div>
-                </div>
-            </div>
-
-            <h2 id="txt-edu-title" style="margin-top: 40px;"><i class="fas fa-terminal"></i> Education.ini</h2>
-            <div class="timeline-item" onclick="this.classList.toggle('active')">
-                <div class="timeline-header">
-                    <span id="edu-header">HCMC Univ. of Technology and Education</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="timeline-body">
-                    <p id="edu-desc">Engineer's Degree in System, Networking, and LAN/WAN Management.</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div id="cv-print-area">
-        <div class="print-container">
+        <div class="intro-role">
+          <div class="line l"></div>
+          <span>Fullstack Developer · RPA &amp; DX</span>
+          <div class="line r"></div>
         </div>
+
+        <div class="intro-company">H.I.S. Co., Ltd. · Tokyo, Japan</div>
+
+        <button class="btn-view" onclick="showCV()">
+          <span class="hover-fill"></span>
+          <span>View Details</span>
+          <!-- chevron-right -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="intro-footer">
+        <span>8+ YRS INFRASTRUCTURE · 4+ YRS FULLSTACK DEV</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CV DETAIL ============ -->
+  <section id="cv" class="screen">
+    <div class="grid-bg">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid2" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#00c8e8" stroke-width="0.8" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid2)" />
+      </svg>
+      <div class="radial"></div>
     </div>
 
-    <div class="fixed-controls">
-        <a href="mailto:anhtenanhminh@gmail.com" class="ctrl-btn" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href="cv.html" class="ctrl-btn" style="background:#10b981" title="View CV"><i
-                class="fas fa-file-text"></i></a>
+    <!-- Topbar -->
+    <div class="cv-topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <span>CV · NGUYEN DO ANH MINH</span>
+      </div>
+      <div class="actions">
+        <button class="btn-download-sm" onclick="downloadCV()">
+          <!-- download -->
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" x2="12" y1="15" y2="3" />
+          </svg>
+          Download CV
+        </button>
+        <button class="btn-close" onclick="showIntro()" aria-label="Close">
+          <!-- x -->
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <script>
-        window.addEventListener('scroll', function () {
-            const body = document.body;
-            const scrollPos = window.scrollY;
+    <!-- Main -->
+    <div class="cv-main">
+      <!-- Name header -->
+      <div class="cv-header">
+        <div class="row">
+          <div>
+            <h1 class="name">NGUYEN DO ANH MINH</h1>
+            <div class="role">
+              <div class="line"></div>
+              <span>Fullstack Developer · RPA &amp; DX</span>
+            </div>
+          </div>
+          <div class="status">
+            <div class="dot"></div>
+            <span>Available in Ho Chi Minh City from Dec 2026</span>
+          </div>
+        </div>
+      </div>
 
-            if (scrollPos > 150) {
-                body.classList.add("scrolled");
-            } else {
-                body.classList.remove("scrolled");
-            }
-        });
+      <!-- Two-column -->
+      <div class="cv-grid">
+        <!-- Sidebar -->
+        <div class="cv-sidebar">
+          <div class="sidebar-avatar-wrap">
+            <div class="sidebar-avatar">
+              <div class="frame"></div>
+              <div class="core"><img src="avt_cv.png" alt="Nguyen Do Anh Minh" /></div>
+            </div>
+          </div>
 
-        const translations = {
-            en: {
-                name: "NGUYEN DO ANH MINH",
-                role: "RPA & Software Developer",
-                intro: "11+ years experience in Infrastructure & Software Development",
-                history: "Work History",
-                edu: "Education",
-                job1H: "H.I.S. Co., Ltd (Tokyo, Japan)",
-                job1D: "Developed internal systems using Laravel 9 and implemented RPA solutions to automate labor-intensive processes in the travel field. Managed global WAN networks.",
-                job2H: "H.I.S. Song Han (Vietnam)",
-                job2D: "Led the IT Solution Department. Developed booking systems using PHP/Linux and established Active Directory for 400+ users.",
-                eduH: "HCMC Univ. of Technology and Education",
-                eduD: "Engineer's Degree in System, Networking, and LAN/WAN Management."
-            },
-            vi: {
-                name: "NGUYỄN ĐỖ ANH MINH",
-                role: "Lập trình viên Software & RPA",
-                intro: "11+ năm kinh nghiệm | Infrastructure & Software Development",
-                history: "Lịch sử làm việc",
-                edu: "Học vấn",
-                job1H: "Công ty H.I.S. (Tokyo, Nhật Bản)",
-                job1D: "Phát triển hệ thống nội bộ bằng Laravel 9 và triển khai các giải pháp RPA để tự động hóa quy trình đặt chỗ. Quản lý mạng WAN toàn cầu.",
-                job2H: "H.I.S. Sông Hàn (Việt Nam)",
-                job2D: "Trưởng phòng Giải pháp IT. Phát triển hệ thống quản lý và thiết lập Active Directory cho hơn 400 người dùng.",
-                eduH: "ĐH Sư phạm Kỹ thuật TP.HCM",
-                eduD: "Bằng Kỹ sư chuyên ngành Hệ thống, Mạng và Quản lý LAN/WAN."
-            },
-            jp: {
-                name: "グエン・ドォ・アン・ミン",
-                role: "RPA・ソフトウェア開発エンジニア",
-                intro: "インフラおよびソフトウェア開発における11年以上の経験",
-                history: "職務経歴",
-                edu: "学歴",
-                job1H: "エイチ・アイ・エス (東京本社)",
-                job1D: "Laravel 9 を使用した社内システムの開発、および RPA 導入による業務自動化を推進。グローバル WAN ネットワークの管理。",
-                job2H: "エイチ・アイ・エス・ソンハン (ベトナム)",
-                job2D: "ITソリューション部門長. PHP/Linux ベースの予約管理システム開発および400ユーザー以上の Active Directory 構築。",
-                eduH: "ホーチミン市師範技術大学",
-                eduD: "システム・ネットワーク・LAN/WAN 管理工学士。"
-            }
-        };
+          <div class="card">
+            <h3>Career Summary</h3>
+            <p class="summary">
+              Fullstack developer with <strong>4+ years designing, building, operating, and maintaining web systems
+                end-to-end</strong> (Laravel/PHP, MySQL, AWS, Docker) on top of
+              <strong>8+ years in infrastructure engineering</strong>.
+              Drives digital transformation (DX) with <strong>RPA</strong> (BizRobo!, n8n) to automate labor-intensive
+              processes in the travel field, alongside server maintenance, debugging, and data analysis.
+              <strong>Returning to Vietnam in December 2026</strong> and seeking a long-term Fullstack Developer /
+              RPA &amp; DX opportunity in Ho Chi Minh City.
+            </p>
+          </div>
 
-        function setLang(lang) {
-            const t = translations[lang];
-            document.getElementById('txt-name').innerText = t.name;
-            document.getElementById('txt-intro').innerText = t.intro;
-            document.getElementById('txt-role').innerText = t.role;
-            document.getElementById('txt-history-title').innerHTML = `<i class="fas fa-briefcase"></i> ${t.history}`;
-            document.getElementById('txt-edu-title').innerHTML = `<i class="fas fa-graduation-cap"></i> ${t.edu}`;
-            document.getElementById('job1-header').innerText = t.job1H;
-            document.getElementById('job1-desc').innerText = t.job1D;
-            document.getElementById('job2-header').innerText = t.job2H;
-            document.getElementById('job2-desc').innerText = t.job2D;
-            document.getElementById('edu-header').innerText = t.eduH;
-            document.getElementById('edu-desc').innerText = t.eduD;
+          <div class="card">
+            <h3>Top Skills</h3>
+            <div class="skill-list" id="skill-list"></div>
+          </div>
 
-            document.querySelectorAll('.lang-switcher button').forEach(b => b.classList.remove('active'));
-            document.getElementById('btn-' + lang).classList.add('active');
+          <div class="card">
+            <h3>Contact</h3>
+            <div class="contact-list">
+              <a class="contact-item" href="mailto:anhminhnguyen.8x@gmail.com" target="_blank"
+                rel="noopener noreferrer">
+                <span class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg></span>
+                <span class="val">anhminhnguyen.8x@gmail.com</span>
+              </a>
+              <div class="contact-item">
+                <span class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg></span>
+                <span class="val">+81 70 4034 0789 | +84 77 280 6044</span>
+              </div>
+              <a class="contact-item" href="https://www.linkedin.com/in/anh-minh-nguyen-jp2023" target="_blank"
+                rel="noopener noreferrer">
+                <span class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect width="4" height="12" x="2" y="9" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg></span>
+                <span class="val">linkedin.com/in/anh-minh-nguyen-jp2023</span>
+              </a>
+              <div class="contact-item">
+                <span class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg></span>
+                <span class="val">Binh Thanh Ward, Ho Chi Minh City (from Dec 2026 · currently Tokyo, Japan)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Languages</h3>
+            <div id="lang-list"></div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="cv-content">
+          <div class="card lg">
+            <div class="section-header">
+              <div class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg></div>
+              <h2>Work Experience</h2>
+              <div class="rule"></div>
+            </div>
+            <div class="timeline" id="experience-list"></div>
+          </div>
+
+          <div class="card lg">
+            <div class="section-header">
+              <div class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+                  <path d="M22 10v6" />
+                  <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+                </svg></div>
+              <h2>Education</h2>
+              <div class="rule"></div>
+            </div>
+            <div class="entry">
+              <div class="spine"></div>
+              <div class="node"></div>
+              <h3 class="title">Engineer's Degree</h3>
+              <div class="meta edu-school">
+                <span class="company">HCMC University of Technology and Education</span>
+                <span class="period">2006 – 2011</span>
+              </div>
+              <p class="edu-desc">System, Networking, and LAN/WAN Management</p>
+            </div>
+          </div>
+
+          <div class="stats" id="stats-list"></div>
+
+          <button class="btn-download-lg" onclick="downloadCV()">
+            <span class="hover-fill"></span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" x2="12" y1="15" y2="3" />
+            </svg>
+            <span>Download Full CV (PDF)</span>
+            <svg class="ext" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3h6v6" />
+              <path d="M10 14 21 3" />
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    /* ---------- Data ---------- */
+    const CV_URL = "CV_Nguyen_Do_Anh_Minh_Fullstack_Developer.pdf";
+
+    const skills = [
+      "Laravel, PHP, MySQL, JavaScript",
+      "RPA & DX (BizRobo!, n8n)",
+      "VM Server, AWS, Docker, Linux",
+      "System Design, Operation & Maintenance",
+      "Data Analysis & Reporting",
+      "Networking (WAN, VPN Site-to-Site)",
+      "Firewalls (Juniper, Fortigate, Zywall)",
+    ];
+
+    const languages = [
+      { lang: "Vietnamese", level: "Native", bars: 5 },
+      { lang: "Japanese", level: "Intermediate", bars: 3 },
+      { lang: "English", level: "Upper-Intermediate", bars: 4 },
+    ];
+
+    const experience = [
+      {
+        title: "Fullstack Developer (RPA & DX)",
+        company: "H.I.S. Co., Ltd.",
+        period: "September 2019 – Present",
+        duration: "6 years 10 months",
+        location: "Tokyo, Japan",
+        bullets: [
+          "**Fullstack Development (2022–Present):** Designed, built, operated, and maintained internal web systems end-to-end with **Laravel 9/PHP, MySQL, JavaScript** — from requirements analysis and UI/database design to implementation, testing, deployment, and day-to-day operation.",
+          "**Server operation & maintenance:** Administered VM/AWS servers and Docker environments; monitored, debugged, and resolved production incidents to keep internal systems running stably.",
+          "**RPA & DX (2021–Present):** Developed RPA robots (**BizRobo!, n8n**) automating reservation-management workflows, increasing productivity and reducing manual labor across travel operations.",
+          "**Data analysis:** Aggregated and analyzed booking and operational data to support reporting and business decisions.",
+          "**Infrastructure Focus (2019–2021):** Managed and supported internet network deployment for international branches; transformed and distributed **WAN NETWORK (CATO NETWORK)** for overseas branches, particularly in Southeast Asia.",
+        ],
+      },
+      {
+        title: "Chief of IT Solution Dept.",
+        company: "H.I.S. SONG HAN VN TOURIST CO., LTD",
+        period: "October 2013 – August 2019",
+        duration: "5 years 11 months",
+        location: "Ho Chi Minh City, Vietnam",
+        bullets: [
+          "Led the IT Solution Department (System Team Leader: 5 staff).",
+          "Managed Project: Developed a system for managing bookings and arranging Car-Driver-Guide services using PHP and Linux.",
+          "Established Active Directory for 3 branch offices and 5+ stores, supporting over 400 computers and users.",
+          "Managed networking, including VPN site-to-site connectivity and working with Juniper, Fortigate, Zywall firewalls.",
+        ],
+      },
+    ];
+
+    const stats = [
+      { value: "8+", label: "Years Infrastructure" },
+      { value: "4+", label: "Years Fullstack Dev" },
+      { value: "400+", label: "Users Managed" },
+      { value: "2", label: "Countries Worked" },
+    ];
+
+    /* ---------- Render ---------- */
+    function el(html) {
+      const t = document.createElement("template");
+      t.innerHTML = html.trim();
+      return t.content.firstChild;
+    }
+
+    function renderSkills() {
+      const c = document.getElementById("skill-list");
+      skills.forEach((s) => {
+        const d = document.createElement("div");
+        d.className = "skill-tag";
+        d.textContent = s;
+        c.appendChild(d);
+      });
+    }
+
+    function renderLanguages() {
+      const c = document.getElementById("lang-list");
+      languages.forEach(({ lang, level, bars }) => {
+        let barsHtml = "";
+        for (let i = 1; i <= 5; i++) barsHtml += `<div class="bar${i <= bars ? " on" : ""}"></div>`;
+        c.appendChild(el(`
+          <div class="lang-row">
+            <div class="lang-head">
+              <span class="name"></span>
+              <span class="level"></span>
+            </div>
+            <div class="lang-bars">${barsHtml}</div>
+          </div>
+        `));
+        const row = c.lastElementChild;
+        row.querySelector(".name").textContent = lang;
+        row.querySelector(".level").textContent = level;
+      });
+    }
+
+    /* Render bold markers **text** -> <strong> */
+    function renderBullet(text) {
+      const li = document.createElement("li");
+      li.appendChild(el('<span class="bullet"></span>'));
+      const span = document.createElement("span");
+      span.className = "text";
+      const parts = text.split(/\*\*(.*?)\*\*/g);
+      parts.forEach((part, k) => {
+        if (k % 2 === 1) {
+          const strong = document.createElement("span");
+          strong.style.color = "#cfe8ff";
+          strong.style.fontWeight = "500";
+          strong.textContent = part;
+          span.appendChild(strong);
+        } else {
+          span.appendChild(document.createTextNode(part));
         }
-    </script>
+      });
+      li.appendChild(span);
+      return li;
+    }
+
+    function renderExperience() {
+      const c = document.getElementById("experience-list");
+      experience.forEach((job) => {
+        const entry = el(`
+          <div class="entry">
+            <div class="spine"></div>
+            <div class="node"></div>
+            <h3 class="title"></h3>
+            <div class="meta">
+              <span class="company"></span>
+              <span class="period"></span>
+              <span class="extra"></span>
+            </div>
+            <ul></ul>
+          </div>
+        `);
+        entry.querySelector(".title").textContent = job.title;
+        entry.querySelector(".company").textContent = job.company;
+        entry.querySelector(".period").textContent = job.period;
+        entry.querySelector(".extra").textContent = `· ${job.duration} · ${job.location}`;
+        const ul = entry.querySelector("ul");
+        job.bullets.forEach((b) => ul.appendChild(renderBullet(b)));
+        c.appendChild(entry);
+      });
+    }
+
+    function renderStats() {
+      const c = document.getElementById("stats-list");
+      stats.forEach(({ value, label }) => {
+        const d = el(`<div class="stat"><div class="value"></div><div class="label"></div></div>`);
+        d.querySelector(".value").textContent = value;
+        d.querySelector(".label").textContent = label;
+        c.appendChild(d);
+      });
+    }
+
+    /* ---------- View switching (mirrors AnimatePresence mode="wait") ---------- */
+    const intro = document.getElementById("intro");
+    const cv = document.getElementById("cv");
+
+    function showCV() {
+      intro.classList.add("leaving");
+      setTimeout(() => {
+        intro.classList.remove("active", "leaving");
+        cv.classList.add("active");
+        cv.scrollTop = 0;
+      }, 500);
+    }
+
+    function showIntro() {
+      cv.classList.add("leaving");
+      setTimeout(() => {
+        cv.classList.remove("active", "leaving");
+        intro.classList.add("active");
+      }, 500);
+    }
+
+    function downloadCV() {
+      const a = document.createElement("a");
+      a.href = CV_URL;
+      a.download = "CV_Nguyen_Do_Anh_Minh_Fullstack_Developer.pdf";
+      a.click();
+    }
+
+    /* ---------- Init ---------- */
+    renderSkills();
+    renderLanguages();
+    renderExperience();
+    renderStats();
+  </script>
 </body>
 
 </html>
