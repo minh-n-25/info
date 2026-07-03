@@ -58,6 +58,7 @@ Fullstack developer with **4+ years designing, building, operating, and maintain
 - **Thời gian:** September 2019 – Present (6 years 10 months)
 - **Địa điểm:** Tokyo, Japan
 - **Mô tả:**
+  - **AI Research & Application (2024 – Present):** Applied **LLMs** (ChatGPT, Claude, Gemini, Perplexity) and the **Google AI ecosystem** (NotebookLM, Google AI Studio, Google Stitch) to accelerate fullstack development and RPA workflows; leveraged **agentic AI / AI-driven development** (Claude Code, Claude Cowork) and the **BMAD-METHOD** (Agile-based AI-agent workflow management) to speed up coding, automation design, and delivery.
   - **Fullstack Development (2022 – Present):** Designed, built, operated, and maintained internal web systems end-to-end with **Laravel/PHP, MySQL, JavaScript** — from requirements analysis and UI/database design to implementation, testing, deployment, and day-to-day operation.
   - **Server operation & maintenance:** Administered VM/AWS servers and Docker environments; monitored, debugged, and resolved production incidents to keep internal systems running stably.
   - **RPA & DX (2021 – Present):** Developed RPA robots (**BizRobo!, n8n**) automating reservation-management workflows, increasing productivity and reducing manual labor across travel operations.
@@ -125,3 +126,4 @@ grep -n "Laravel" index.html cv.html                                          # 
 |---|---|---|
 | 2026-07-03 | Kiểm tra nhất quán 3 file sau khi pull. Sửa `cv.html`: `Laravel 9` → `Laravel` (markup + en/jp/vi), `5 stores` → `5+ stores` (markup). Tạo file nguồn chung này. Còn tồn: định dạng SĐT (index có cách vs cv/pdf liền) và dịch JP English `業務限定`. | Claude |
 | 2026-07-03 | Thống nhất SĐT dạng có khoảng cách trong `cv.html` (markup + en/jp/vi) — khớp `index.html`. Đổi dịch JP English `業務限定` → `中上級`. **Lưu ý: PDF vẫn còn SĐT dạng liền, cần tạo lại PDF.** | Claude |
+| 2026-07-03 | Thêm bullet **AI Research & Application (2024 – Present)** vào công ty hiện tại (H.I.S. Co., Ltd.), đặt trước bullet 2022–Present. Đồng bộ `index.html` (mảng JS) + `cv.html` (markup + en/jp/vi, key `job1_desc0`). **Lưu ý: cần tạo lại PDF để bổ sung nội dung mới.** | Claude |
