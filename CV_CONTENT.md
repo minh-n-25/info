@@ -33,6 +33,7 @@ Fullstack developer with **4+ years designing, building, operating, and maintain
 ## Top Skills
 
 - Laravel, PHP, MySQL, JavaScript
+- AI-Driven Development (LLMs, Agentic AI, BMAD-METHOD)
 - RPA & DX (BizRobo!, n8n)
 - VM Server, AWS, Docker, Linux
 - System Design, Operation & Maintenance
@@ -127,3 +128,4 @@ grep -n "Laravel" index.html cv.html                                          # 
 | 2026-07-03 | Kiểm tra nhất quán 3 file sau khi pull. Sửa `cv.html`: `Laravel 9` → `Laravel` (markup + en/jp/vi), `5 stores` → `5+ stores` (markup). Tạo file nguồn chung này. Còn tồn: định dạng SĐT (index có cách vs cv/pdf liền) và dịch JP English `業務限定`. | Claude |
 | 2026-07-03 | Thống nhất SĐT dạng có khoảng cách trong `cv.html` (markup + en/jp/vi) — khớp `index.html`. Đổi dịch JP English `業務限定` → `中上級`. **Lưu ý: PDF vẫn còn SĐT dạng liền, cần tạo lại PDF.** | Claude |
 | 2026-07-03 | Thêm bullet **AI Research & Application (2024 – Present)** vào công ty hiện tại (H.I.S. Co., Ltd.), đặt trước bullet 2022–Present. Đồng bộ `index.html` (mảng JS) + `cv.html` (markup + en/jp/vi, key `job1_desc0`). **Lưu ý: cần tạo lại PDF để bổ sung nội dung mới.** | Claude |
+| 2026-07-03 | Thêm skill **AI-Driven Development (LLMs, Agentic AI, BMAD-METHOD)** vào Top Skills (vị trí thứ 2). Đồng bộ `index.html` (mảng `skills`) + `cv.html` (markup `.skill-list`, không có bản dịch). **Lưu ý: cần tạo lại PDF.** | Claude |
