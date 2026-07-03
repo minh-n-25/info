@@ -17,7 +17,8 @@ Served by XAMPP from `c:\xampp\htdocs\Claude\info`, so it's reachable at `http:/
 
 ## Conventions that matter
 
+- **Single source of truth**: `CV_CONTENT.md` holds the canonical CV content. Edit it **first**, then sync the three display files below. It also carries a sync checklist and a change log — record every content change there.
 - **Bold markers**: both pages use `**text**` inside content strings and convert it to `<strong>` at render time (regex `/\*\*(.*?)\*\*/g`). Keep this syntax when editing CV text.
-- **Two sources of truth for CV data**: the same facts (job titles, dates, skills) are duplicated across `index.html`'s JS arrays and `cv.html`'s markup + `translations`. When updating a fact (e.g. a job duration or skill), update **both files**, and in `cv.html` update **all three languages**.
+- **Content lives in three places — sync all whenever a fact changes**: the same facts (job titles, dates, skills) are duplicated across `index.html`'s JS arrays, `cv.html`'s markup + `translations`, and the `CV_..._Fullstack_Developer.pdf`. When updating a fact, update **all three** (in `cv.html` update **all three languages** + markup), then re-verify with `pdftotext -layout <pdf> -` and `grep` on a specific fact.
 - **PDF asset**: `index.html` links `CV_Nguyen_Do_Anh_Minh_Fullstack_Developer.pdf` via `downloadCV()`. If the CV content changes, regenerate/replace that PDF to keep it in sync.
 - `README.md` is effectively empty (UTF-16, just the word "info") — not a source of information.
