@@ -28,15 +28,15 @@
 
 ## Career Summary
 
-Fullstack developer with **4+ years designing, building, operating, and maintaining web systems end-to-end** (Laravel/PHP, MySQL, AWS, Docker) on top of **8+ years in infrastructure engineering**. Drives digital transformation (DX) with **RPA** (BizRobo!, n8n) to automate labor-intensive processes in the travel field, alongside server maintenance, debugging, and data analysis. **Returning to Vietnam in December 2026** and seeking a long-term Fullstack Developer / RPA & DX opportunity in Ho Chi Minh City.
+Fullstack & Backend Developer and Solution Architect with **4+ years designing, building, operating, and maintaining web systems end-to-end** (Laravel/PHP, MySQL, REST APIs, AWS, Docker, Linux) on top of **8+ years in infrastructure engineering and system design**. Drives digital transformation (DX) as an **RPA Developer** (BizRobo!, n8n) automating labor-intensive processes in the travel field, alongside server operation, debugging, and data analysis. **Returning to Vietnam in December 2026** and seeking a long-term Fullstack / Backend Developer, Solution Architect, or RPA Developer role in Ho Chi Minh City.
 
 ## Top Skills
 
-- Laravel, PHP, MySQL, JavaScript
+- Fullstack & Backend Development (Laravel, PHP, MySQL, REST API, JavaScript)
 - AI-Driven Development (LLMs, Agentic AI, BMAD-METHOD)
-- RPA & DX (BizRobo!, n8n)
-- VM Server, AWS, Docker, Linux
-- System Design, Operation & Maintenance
+- RPA Development & DX (BizRobo!, n8n, Workflow Automation)
+- Cloud & DevOps (AWS, Docker, Linux, VM Server)
+- Solution Architecture, System Design & Operation
 - Data Analysis & Reporting
 - Networking (WAN, VPN Site-to-Site)
 - Firewalls (Juniper, Fortigate, Zywall)
@@ -130,3 +130,4 @@ grep -n "Laravel" index.html cv.html                                          # 
 | 2026-07-03 | Thêm bullet **AI Research & Application (2024 – Present)** vào công ty hiện tại (H.I.S. Co., Ltd.), đặt trước bullet 2022–Present. Đồng bộ `index.html` (mảng JS) + `cv.html` (markup + en/jp/vi, key `job1_desc0`). **Lưu ý: cần tạo lại PDF để bổ sung nội dung mới.** | Claude |
 | 2026-07-03 | Thêm skill **AI-Driven Development (LLMs, Agentic AI, BMAD-METHOD)** vào Top Skills (vị trí thứ 2). Đồng bộ `index.html` (mảng `skills`) + `cv.html` (markup `.skill-list`, không có bản dịch). **Lưu ý: cần tạo lại PDF.** | Claude |
 | 2026-07-03 | PDF đã được cập nhật & đối chiếu — khớp toàn bộ nội dung chuẩn (bullet AI, skill AI, Laravel/PHP, SĐT có khoảng cách, 5+ stores). ✅ **3 file + PDF đã đồng bộ.** Xóa PDF cũ `CV_-_Nguyen_Do_Anh_Minh_-_Software_Developer.pdf` (không còn tham chiếu). | Claude |
+| 2026-07-06 | Tối ưu keyword tuyển dụng: chèn vai trò **Backend Developer, Solution Architect, RPA Developer** + tech (REST API, Cloud & DevOps, Workflow Automation) vào **Career Summary** & **Top Skills**. Đồng bộ `index.html` (markup summary + mảng `skills`) và `cv.html` (markup summary + skill-list + cả 3 ngôn ngữ en/jp/vi). **Lưu ý: cần tạo lại PDF để khớp Summary + Skills mới.** | Claude |
